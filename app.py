@@ -18,7 +18,6 @@ class_names = ['Cam', 'Chôm chôm', 'Chuối', 'Dâu tây', 'Dưa hấu', 'Dứ
 
 # Giao diện người dùng
 st.title("🍎 Nhận Diện Trái Cây")
-st.write("Upload ảnh trái cây để mô hình phân loại.")
 
 uploaded_file = st.file_uploader("Tải ảnh trái cây", type=["jpg", "jpeg", "png"])
 
@@ -27,10 +26,15 @@ if uploaded_file is not None:
     st.image(image, caption="Ảnh bạn đã tải lên", use_column_width=True)
 
     # Tiền xử lý ảnh
-    img = image.resize((224, 224))  # Kích thước mặc định cho EfficientNetV2-B0
-    img_array = np.array(img)
+   # Hiển thị ảnh gốc cho đẹp
+    st.image(image, caption="Ảnh đã tải lên", use_column_width=True)
+    
+    # Tiền xử lý ảnh cho mô hình
+    img = image.resize((224, 224), Image.LANCZOS)
+    img_array = np.array(img).astype(np.uint8)
     img_preprocessed = preprocess_input(img_array)
-    img_batch = np.expand_dims(img_preprocessed, axis=0)  # (1, 224, 224, 3)
+    img_batch = np.expand_dims(img_preprocessed, axis=0)
+
 
     # Dự đoán
     predictions = model.predict(img_batch)
