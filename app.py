@@ -13,28 +13,28 @@ def load_trained_model():
 
 model = load_trained_model()
 
-# Danh sách tên lớp (đúng theo mô hình bạn đã huấn luyện)
+# Danh sách tên lớp (bạn cần chỉnh sửa đúng theo số lớp mà mô hình bạn huấn luyện)
 class_names = ['Cam', 'Chôm chôm', 'Chuối', 'Dâu tây', 'Dưa hấu', 'Dứa', 'Kiwi', 'Măng cụt', 'Táo', 'Xoài'] 
 
 # Giao diện người dùng
 st.title("🍎 Nhận Diện Trái Cây")
 
-uploaded_file = st.file_uploader("📷 Tải ảnh trái cây", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Tải ảnh trái cây", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    # Hiển thị ảnh gốc
     image = Image.open(uploaded_file).convert("RGB")
-    st.image(image, caption="Ảnh bạn đã tải lên", use_container_width=True)
+    st.image(image, caption="Ảnh bạn đã tải lên", use_column_width=True)
 
-    # Tiền xử lý cho model (resize ảnh bản copy)
-    img = image.copy().resize((224, 224))
+    # Tiền xử lý ảnh
+    img = image.resize((224, 224))  # Kích thước mặc định cho EfficientNetV2-B0
     img_array = np.array(img)
     img_preprocessed = preprocess_input(img_array)
     img_batch = np.expand_dims(img_preprocessed, axis=0)  # (1, 224, 224, 3)
+
 
     # Dự đoán
     predictions = model.predict(img_batch)
     predicted_class = class_names[np.argmax(predictions)]
     confidence = np.max(predictions)
 
-    st.markdown(f"### ✅ Dự đoán: **{predicted_class}** ({confidence*100:.2f}%)")
+    st.markdown(f"### ✅ Dự đoán: **{predicted_class}** ({confidence*100:.2f}%)") sửa hết đi để t copy
