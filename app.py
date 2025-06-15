@@ -14,10 +14,10 @@ def load_trained_model():
 model = load_trained_model()
 
 # Danh sách tên lớp (bạn cần chỉnh sửa đúng theo số lớp mà mô hình bạn huấn luyện)
-class_names = ['Apple', 'Banana', 'Orange', 'Grape', 'Pineapple']  # ví dụ
+class_names = ['Cam', 'Chôm chôm', 'Chuối', 'Dâu tây', 'Dứa', 'Kiwi', 'Măng cụt', 'Táo', 'Xoài'] 
 
 # Giao diện người dùng
-st.title("🍎 Phân Loại Trái Cây")
+st.title("🍎 Nhận Diện Trái Cây")
 st.write("Upload ảnh trái cây để mô hình phân loại.")
 
 uploaded_file = st.file_uploader("Tải ảnh trái cây", type=["jpg", "jpeg", "png"])
