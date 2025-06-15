@@ -8,7 +8,7 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 model = load_model("model_fruit.h5")
 
 # Danh sách lớp
-classes = ['Cam', 'Chuối', 'Chôm chôm', 'Dâu tây', 'Dứa', 'Dưa hấu', 'Kiwi', 'Măng cụt', 'Táo', 'Xoài']
+classes = ['Cam', 'Chôm chôm', 'Chuối', 'Dâu tây', 'Dứa', 'Dưa hấu', 'Kiwi', 'Măng cụt', 'Táo', 'Xoài']
 
 st.title("🍓 Nhận diện trái cây")
 
