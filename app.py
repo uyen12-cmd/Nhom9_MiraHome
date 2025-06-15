@@ -26,14 +26,10 @@ if uploaded_file is not None:
     st.image(image, caption="Ảnh bạn đã tải lên", use_column_width=True)
 
     # Tiền xử lý ảnh
-   # Hiển thị ảnh gốc cho đẹp
-    st.image(image, caption="Ảnh đã tải lên", use_column_width=True)
-    
-    # Tiền xử lý ảnh cho mô hình
-    img = image.resize((224, 224), Image.LANCZOS)
-    img_array = np.array(img).astype(np.uint8)
+    img = image.resize((150, 150))  # Kích thước mặc định cho EfficientNetV2-B0
+    img_array = np.array(img)
     img_preprocessed = preprocess_input(img_array)
-    img_batch = np.expand_dims(img_preprocessed, axis=0)
+    img_batch = np.expand_dims(img_preprocessed, axis=0)  # (1, 150, 150, 3)
 
 
     # Dự đoán
