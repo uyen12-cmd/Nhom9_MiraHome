@@ -37,4 +37,4 @@ if uploaded_file is not None:
     predicted_class = class_names[np.argmax(predictions)]
     confidence = np.max(predictions)
 
-    st.markdown(f"### ✅ Dự đoán: **{predicted_class}** ({confidence*100:.2f}%)") sửa hết đi để t copy
+    st.markdown(f"### ✅ Dự đoán: **{predicted_class}** ({confidence*100:.2f}%)") 
