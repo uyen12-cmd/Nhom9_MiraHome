@@ -14,7 +14,7 @@ def load_trained_model():
 model = load_trained_model()
 
 # Danh sách tên lớp (bạn cần chỉnh sửa đúng theo số lớp mà mô hình bạn huấn luyện)
-class_names = ['Cam', 'Chôm chôm', 'Chuối', 'Dâu tây', 'Dứa', 'Kiwi', 'Măng cụt', 'Táo', 'Xoài'] 
+class_names = ['Cam', 'Chôm chôm', 'Chuối', 'Dâu tây', 'Dưa hấu', 'Dứa', 'Kiwi', 'Măng cụt', 'Táo', 'Xoài'] 
 
 # Giao diện người dùng
 st.title("🍎 Nhận Diện Trái Cây")
